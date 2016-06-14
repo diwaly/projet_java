@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by Max on 14/06/2016.
  */
 @MappedSuperclass
-public class AbsEntity {
+public abstract class AbsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
