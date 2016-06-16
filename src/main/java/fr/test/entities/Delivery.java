@@ -1,5 +1,7 @@
 package fr.test.entities;
 
+import org.joda.time.DateTime;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -12,7 +14,7 @@ import java.util.List;
 public class Delivery extends AbsEntity{
 
     private String reference;
-    private Date dateCreated;
+    private DateTime dateCreated;
     /*@ManyToMany
     private List<Order2> orders;*/
     @ManyToOne
@@ -23,7 +25,7 @@ public class Delivery extends AbsEntity{
 
     @PrePersist
     void init() {
-        this.dateCreated = new Date();
+        this.dateCreated = new DateTime();
     }
 
     public String getReference() {
@@ -34,11 +36,11 @@ public class Delivery extends AbsEntity{
         this.reference = reference;
     }
 
-    public Date getDateCreated() {
+    public DateTime getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(DateTime dateCreated) {
         this.dateCreated = dateCreated;
     }
 

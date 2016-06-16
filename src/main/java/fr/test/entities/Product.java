@@ -1,6 +1,7 @@
 package fr.test.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.joda.time.DateTime;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,7 +16,7 @@ public class Product extends AbsEntity{
 
     private String name;
     private String description;
-    private Date createdAt;
+    private DateTime createdAt;
     private Float price;
     private Integer stock;
     @JsonIgnore
@@ -27,7 +28,7 @@ public class Product extends AbsEntity{
 
     @PrePersist
     void init() {
-        this.createdAt = new Date();
+        this.createdAt = new DateTime();
     }
 
     public String getName() {
@@ -46,11 +47,11 @@ public class Product extends AbsEntity{
         this.description = description;
     }
 
-    public Date getCreatedAt() {
+    public DateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(DateTime createdAt) {
         this.createdAt = createdAt;
     }
 

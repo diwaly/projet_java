@@ -1,6 +1,7 @@
 package fr.test.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.joda.time.DateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -17,7 +18,7 @@ import java.util.List;
 public class Invoice extends AbsEntity{
 
     private String reference;
-    private Date dateCreated;
+    private DateTime dateCreated;
     private Float tva;
     @JsonIgnore
     @OneToMany(mappedBy="invoice")
@@ -28,7 +29,7 @@ public class Invoice extends AbsEntity{
 
     @PrePersist
     void init() {
-        this.dateCreated = new Date();
+        this.dateCreated = new DateTime();
     }
 
     public String getReference() {
@@ -39,11 +40,11 @@ public class Invoice extends AbsEntity{
         this.reference = reference;
     }
 
-    public Date getDateCreated() {
+    public DateTime getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(DateTime dateCreated) {
         this.dateCreated = dateCreated;
     }
 

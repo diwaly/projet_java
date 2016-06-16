@@ -16,10 +16,19 @@ public class OrderService {
     @Autowired
     private OrderRepo orderRepo;
 
+    /**
+     *
+     * @return List of orders
+     */
     public List<Order2> getOrders() {
         return orderRepo.findAll();
     }
 
+    /**
+     *
+     * @param id of order
+     * @return order
+     */
     public Order2 getOrder(Long id) {
         return orderRepo.findOne(id);
     }

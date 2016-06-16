@@ -1,6 +1,11 @@
 package fr.test.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.joda.deser.DateTimeDeserializer;
+import com.fasterxml.jackson.datatype.joda.ser.DateTimeSerializer;
+import org.joda.time.DateTime;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,7 +19,9 @@ import java.util.List;
 public class Order2 extends AbsEntity{
 
     private String reference;
-    private Date dateCreated;
+    @JsonSerialize(using=DateTimeSerializer.class)
+    @JsonDeserialize(using=DateTimeDeserializer.class)
+    private DateTime dateCreated;
     @JsonIgnore
     @ManyToOne
     private Customer customer;
@@ -32,7 +39,7 @@ public class Order2 extends AbsEntity{
 
     @PrePersist
     void init() {
-        this.dateCreated = new Date();
+        this.dateCreated = new DateTime();
     }
 
     public String getReference() {
@@ -43,11 +50,11 @@ public class Order2 extends AbsEntity{
         this.reference = reference;
     }
 
-    public Date getDateCreated() {
+    public DateTime getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(DateTime dateCreated) {
         this.dateCreated = dateCreated;
     }
 
