@@ -14,7 +14,11 @@ public class CustomerService {
     @Autowired
     private CustomerRepo customerRepo;
 
-
+    /**
+     * getCustomer
+     * @param id Customer
+     * @return Customer
+     */
     public Customer getCustomer(Long id) {
         return customerRepo.findOne(id);
     }

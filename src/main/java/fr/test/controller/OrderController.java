@@ -18,6 +18,10 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    /**
+     * Web service getOrders
+     * @return list of order json
+     */
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
     public ResponseEntity<List<Order2>> getOrders() {
 
@@ -25,6 +29,11 @@ public class OrderController {
         return new ResponseEntity<List<Order2>>(orders, HttpStatus.OK);
     }
 
+    /**
+     * Web service getOrder
+     * @param id
+     * @return order json
+     */
     @RequestMapping(value = "/order/{id}", method = RequestMethod.GET)
     public ResponseEntity<Order2> getOrder(@PathVariable Long id) {
 
@@ -32,6 +41,11 @@ public class OrderController {
         return new ResponseEntity<Order2>(orders, HttpStatus.OK);
     }
 
+    /**
+     * Web service setOrder
+     * @param order json
+     * @return order saved
+     */
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public ResponseEntity<Order2> setOrder(@RequestBody Order2 order) {
 
@@ -39,6 +53,11 @@ public class OrderController {
         return new ResponseEntity<Order2>(orders, HttpStatus.OK);
     }
 
+    /**
+     * Webservice delOrder
+     * @param id
+     * @return status integer
+     */
     @RequestMapping(value = "/order/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Integer> delOrder(@PathVariable Long id) {
 

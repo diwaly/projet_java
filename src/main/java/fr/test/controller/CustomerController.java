@@ -16,6 +16,11 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+    /**
+     * Web service getCustomer
+     * @param id
+     * @return Customer json
+     */
     @RequestMapping(value = "/customer/{id}", method = RequestMethod.GET)
     public ResponseEntity<Customer> getCustomer(@PathVariable Long id) {
 

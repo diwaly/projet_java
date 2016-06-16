@@ -17,7 +17,7 @@ public class OrderService {
     private OrderRepo orderRepo;
 
     /**
-     *
+     * getOrders
      * @return List of orders
      */
     public List<Order2> getOrders() {
@@ -25,7 +25,7 @@ public class OrderService {
     }
 
     /**
-     *
+     * getOrder
      * @param id of order
      * @return order
      */
@@ -33,10 +33,20 @@ public class OrderService {
         return orderRepo.findOne(id);
     }
 
+    /**
+     * setOrder
+     * @param order
+     * @return Order
+     */
     public Order2 setOrder(Order2 order) {
         return orderRepo.save(order);
     }
 
+    /**
+     * delOrder
+     * @param id
+     * @return status integer
+     */
     public Integer delOrder(Long id) {
         orderRepo.delete(id);
         return 0;

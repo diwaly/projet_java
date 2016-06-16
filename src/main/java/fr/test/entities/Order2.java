@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.joda.deser.DateTimeDeserializer;
 import com.fasterxml.jackson.datatype.joda.ser.DateTimeSerializer;
 import org.joda.time.DateTime;
+import org.joda.time.format.ISODateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -40,6 +41,7 @@ public class Order2 extends AbsEntity{
     @PrePersist
     void init() {
         this.dateCreated = new DateTime();
+        //dateCreated.toString(ISODateTimeFormat.dateTime());
     }
 
     public String getReference() {
