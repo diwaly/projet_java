@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.joda.deser.DateTimeDeserializer;
 import com.fasterxml.jackson.datatype.joda.ser.DateTimeSerializer;
+import fr.generate.GenerateRef;
 import org.joda.time.DateTime;
 import org.joda.time.format.ISODateTimeFormat;
 
@@ -42,6 +43,7 @@ public class Order2 extends AbsEntity{
     void init() {
         this.dateCreated = new DateTime();
         //dateCreated.toString(ISODateTimeFormat.dateTime());
+        reference = GenerateRef.getGenrateRef("ORD");
     }
 
     public String getReference() {

@@ -1,6 +1,7 @@
 package fr.test.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import fr.generate.GenerateRef;
 import org.joda.time.DateTime;
 
 import javax.persistence.Entity;
@@ -46,6 +47,7 @@ public class Invoice extends AbsEntity{
 
     public void setDateCreated(DateTime dateCreated) {
         this.dateCreated = dateCreated;
+        reference = GenerateRef.getGenrateRef("FACT");
     }
 
     public Float getTva() {

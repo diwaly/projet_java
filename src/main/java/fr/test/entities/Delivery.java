@@ -1,5 +1,6 @@
 package fr.test.entities;
 
+import fr.generate.GenerateRef;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
@@ -26,6 +27,7 @@ public class Delivery extends AbsEntity{
     @PrePersist
     void init() {
         this.dateCreated = new DateTime();
+        reference = GenerateRef.getGenrateRef("DLV");
     }
 
     public String getReference() {
